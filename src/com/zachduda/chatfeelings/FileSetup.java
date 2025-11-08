@@ -3,6 +3,7 @@ package com.zachduda.chatfeelings;
 import com.zachduda.chatfeelings.other.Supports;
 import org.bukkit.Bukkit;
 import org.bukkit.Registry;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -12,7 +13,9 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class FileSetup {
@@ -398,20 +401,21 @@ public class FileSetup {
                 }
             }
         } else {
-            if (emotes.getInt("Version") != 7) {
+            final int currentEmotesVersion = emotes.getInt("Version");
+            if (currentEmotesVersion != 8) {
                 plugin.getLogger().info("Updating your emotes.yml for the latest update...");
-                if(emotes.getInt("Version") <= 4) {
+                if(currentEmotesVersion <= 4) {
                     if(!emotes.contains("Feelings.Bienvenido.Msgs.Sender") || Objects.requireNonNull(emotes.getString("Feelings.Bienvenido.Msgs.Sender")).equalsIgnoreCase("&7You told &a&l%player% welcome back!")) {
                         forceEmotes("Feelings.Bienvenido.Msgs.Sender", "&7Le dijiste a &a&l%player%&r &7¡bienvenido de vuelta!");
                     }
                 }
-                if (emotes.getInt("Version") <= 3) {
+                if (currentEmotesVersion <= 3) {
                     if (Objects.requireNonNull(emotes.getString("Feelings.Morder.Msgs.Sender")).contains("info")) {
                         forceEmotes("Feelings.Morder.Msgs.Sender", "&7Clavas tus dientes en la piel de &c&l%player%&r&7.");
                     }
                 }
 
-                if (emotes.getInt("Version") <= 5) {
+                if (currentEmotesVersion <= 5) {
                    setEmotesBoolean("Feelings.Bienvenido.Enable", emotes.getBoolean("Feelings.Wb.Enable"));
                    setEmotes("Feelings.Bienvenido.Msgs.Sender", emotes.getString("Feelings.Wb.Msgs.Sender"));
                    setEmotes("Feelings.Bienvenido.Msgs.Target", emotes.getString("Feelings.Wb.Msgs.Target"));
@@ -422,10 +426,10 @@ public class FileSetup {
                    setEmotes("Feelings.Bienvenido.Sounds.Sound2.Name", emotes.getString("Feelings.Wb.Sounds.Sound2.Name"));
                    setEmotesDouble("Feelings.Bienvenido.Sounds.Sound2.Volume", emotes.getDouble("Feelings.Wb.Sounds.Sound2.Volume"));
                    setEmotesDouble("Feelings.Bienvenido.Sounds.Sound2.Pitch", emotes.getDouble("Feelings.Wb.Sounds.Sound2.Pitch"));
-                   
+
                    forceEmotes("Feelings.Wb", null);
                 }
-                if(emotes.getInt("Version") <= 6) {
+                if(currentEmotesVersion <= 6) {
                     final String path = "Feelings.Abrazo.Sounds.Sound1.Name";
                     if(emotes.contains(path)) {
                         if(Objects.requireNonNull(emotes.getString(path)).equalsIgnoreCase("ENTITY_CAT_PURREOW")) {
@@ -436,7 +440,70 @@ public class FileSetup {
                         }
                     }
                 }
-                setEmotesVersion(7);
+                if(currentEmotesVersion <= 7) {
+                    Map<String, String> migratedFeelings = new LinkedHashMap<>();
+                    migratedFeelings.put("Hug", "Abrazo");
+                    migratedFeelings.put("Bite", "Morder");
+                    migratedFeelings.put("Punch", "Golpear");
+                    migratedFeelings.put("Murder", "Asesinar");
+                    migratedFeelings.put("Boi", "Oye");
+                    migratedFeelings.put("Dab", "Dabear");
+                    migratedFeelings.put("Cry", "Llorar");
+                    migratedFeelings.put("Facepalm", "Palmada");
+                    migratedFeelings.put("Highfive", "Chocala");
+                    migratedFeelings.put("Kiss", "Besar");
+                    migratedFeelings.put("Lick", "Lamer");
+                    migratedFeelings.put("Shake", "Sacudir");
+                    migratedFeelings.put("Snuggle", "Acurrucar");
+                    migratedFeelings.put("Yell", "Gritar");
+                    migratedFeelings.put("Poke", "Picar");
+                    migratedFeelings.put("Slap", "Bofetada");
+                    migratedFeelings.put("Stab", "Acuchillar");
+                    migratedFeelings.put("Pat", "Acariciar");
+                    migratedFeelings.put("Scorn", "Despreciar");
+                    migratedFeelings.put("Stalk", "Acechar");
+                    migratedFeelings.put("Sus", "Sospechar");
+                    migratedFeelings.put("Wave", "Saludar");
+                    migratedFeelings.put("Welcomeback", "Bienvenido");
+                    migratedFeelings.put("Boop", "Tocar");
+
+                    boolean migrated = false;
+                    for (Map.Entry<String, String> entry : migratedFeelings.entrySet()) {
+                        final String legacyKey = entry.getKey();
+                        final String localizedKey = entry.getValue();
+                        final String legacyPath = "Feelings." + legacyKey;
+                        final String localizedPath = "Feelings." + localizedKey;
+
+                        if (!emotes.contains(legacyPath)) {
+                            continue;
+                        }
+
+                        if (!emotes.contains(localizedPath)) {
+                            emotes.set(localizedPath, emotes.get(legacyPath));
+                        } else {
+                            // Merge missing nested values so existing customizations aren't lost.
+                            final ConfigurationSection legacySection = emotes.getConfigurationSection(legacyPath);
+                            if (legacySection != null) {
+                                for (String child : legacySection.getKeys(true)) {
+                                    final String childLegacyPath = legacyPath + "." + child;
+                                    final String childLocalizedPath = localizedPath + "." + child;
+                                    if (!emotes.contains(childLocalizedPath)) {
+                                        emotes.set(childLocalizedPath, emotes.get(childLegacyPath));
+                                    }
+                                }
+                            }
+                        }
+
+                        emotes.set(legacyPath, null);
+                        migrated = true;
+                    }
+
+                    if (migrated) {
+                        saveFile(emotes, emotesfile);
+                        emotes = YamlConfiguration.loadConfiguration(emotesfile);
+                    }
+                }
+                setEmotesVersion(8);
             }
         }
 
@@ -750,7 +817,7 @@ public class FileSetup {
         setEmotesDouble("Feelings.Tocar.Sounds.Sound2.Volume", 0.0);
         setEmotesDouble("Feelings.Tocar.Sounds.Sound2.Pitch", 0.0);
 
-        setEmotesVersion(7);
+        setEmotesVersion(8);
         reloadFiles();
     }
 
