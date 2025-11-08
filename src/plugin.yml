@@ -1,8 +1,8 @@
-name: ChatFeelings
-main: com.zachduda.chatfeelings.Main
-website: https://zachduda.com/chatfeelings
-authors: [zach_attack]
-version: 4.15-B78
+name: ChatFeelingsTerry
+main: com.terryviento.chatfeelings.Main
+website: https://github.com/TerryViento/ChatFeelings
+authors: [TerryViento]
+version: 4.16-B01
 api-version: 1.13
 softdepend: [Essentials, VanishNoPacket, LiteBans, AdvancedBan, PlaceholderAPI]
 description: Permite que tus jugadores expresen su amor u odio con emotes únicos.

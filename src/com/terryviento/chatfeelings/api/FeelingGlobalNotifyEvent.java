@@ -1,4 +1,4 @@
-package com.zachduda.chatfeelings.api;
+package com.terryviento.chatfeelings.api;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

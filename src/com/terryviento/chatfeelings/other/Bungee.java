@@ -1,4 +1,4 @@
-package com.zachduda.chatfeelings.other;
+package com.terryviento.chatfeelings.other;
 
 public class Bungee {
 	  public void onEnable()

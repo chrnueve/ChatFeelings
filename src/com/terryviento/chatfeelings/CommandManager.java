@@ -1,4 +1,4 @@
-package com.zachduda.chatfeelings;
+package com.terryviento.chatfeelings;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

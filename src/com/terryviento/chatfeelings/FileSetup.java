@@ -1,7 +1,6 @@
-package com.zachduda.chatfeelings;
+package com.terryviento.chatfeelings;
 
-import com.zachduda.chatfeelings.other.Supports;
-import org.bukkit.Bukkit;
+import com.terryviento.chatfeelings.other.Supports;
 import org.bukkit.Registry;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -30,7 +29,7 @@ public class FileSetup {
     }
 
     private static File getFolder() {
-        return Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("ChatFeelings")).getDataFolder();
+        return plugin.getDataFolder();
     }
 
     private static void setMsgs(String configpath, String msg) {

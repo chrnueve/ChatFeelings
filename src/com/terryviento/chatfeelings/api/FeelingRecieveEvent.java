@@ -1,4 +1,4 @@
-package com.zachduda.chatfeelings.api;
+package com.terryviento.chatfeelings.api;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -7,17 +7,15 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
-
 @SuppressWarnings("unused")
-public class FeelingSendEvent extends Event implements Cancellable {
+public class FeelingRecieveEvent extends Event implements Cancellable {
 	
 	private final CommandSender sender;
 	private final Player target;
 	private final String feeling;
     private boolean isCancelled;
 
-    public FeelingSendEvent(CommandSender sender, Player target, String feeling) {
+    public FeelingRecieveEvent(Player target, CommandSender sender, String feeling) {
         this.sender = sender;
         this.target = target;
         this.feeling = feeling;
@@ -50,11 +48,8 @@ public class FeelingSendEvent extends Event implements Cancellable {
     	return this.feeling;
     }
     
-    public Player getTarget() {
+    public Player getPlayer() {
     	return this.target;
     }
 
-    public String getSendersMessage() { return Objects.requireNonNull(ChatFeelingsAPI.getSenderEmoteMessage(this.feeling)).replaceAll("%sender%", this.sender.getName()).replaceAll("%target%", this.target.getName()); }
-    public String getTargetsMessage() { return Objects.requireNonNull(ChatFeelingsAPI.getTargetEmoteMessage(this.feeling)).replaceAll("%sender%", this.sender.getName()).replaceAll("%target%", this.target.getName()); }
-    public String getGlobalEmoteMessage() { return Objects.requireNonNull(ChatFeelingsAPI.getGlobalEmoteMessage(this.feeling)).replaceAll("%sender%", this.sender.getName()).replaceAll("%target%", this.target.getName()); }
 }

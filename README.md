@@ -14,9 +14,9 @@ For information on how to use the API, [click here](https://www.spigotmc.org/wik
 ```
 ```[code=xml]
 <dependency>
-  <groupId>com.zachduda</groupId>
+  <groupId>com.terryviento</groupId>
   <artifactId>chatfeelings</artifactId>
-  <version>4.15.0</version>
+  <version>4.16.0</version>
 </dependency>
 ```
 

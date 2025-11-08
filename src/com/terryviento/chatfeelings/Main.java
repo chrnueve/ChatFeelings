@@ -1,9 +1,9 @@
-package com.zachduda.chatfeelings;
+package com.terryviento.chatfeelings;
 
 import com.earth2me.essentials.Essentials;
-import com.zachduda.chatfeelings.api.*;
-import com.zachduda.chatfeelings.other.Supports;
-import com.zachduda.chatfeelings.other.Updater;
+import com.terryviento.chatfeelings.api.*;
+import com.terryviento.chatfeelings.other.Supports;
+import com.terryviento.chatfeelings.other.Updater;
 import litebans.api.Database;
 import me.leoko.advancedban.manager.PunishmentManager;
 import org.bstats.bukkit.Metrics;
@@ -189,7 +189,7 @@ public class Main extends JavaPlugin implements Listener, TabExecutor {
 
                 if(f.getName().toLowerCase().contains(".ds_store")) {
                     // Ignore MAC OS created files in the DATA folder.
-                    return;
+                    continue;
                 }
 
                 if (!f.getName().equalsIgnoreCase("global.yml")) {
@@ -366,7 +366,16 @@ public class Main extends JavaPlugin implements Listener, TabExecutor {
     }
 
     public boolean hasPerm(CommandSender p, String node, Boolean admin_cmd) {
-        return (!(p instanceof Player)) || (!node.equalsIgnoreCase("none") && p.hasPermission(node)) || p.isOp() || (!admin_cmd && !useperms) || (feelings.contains(node.replaceAll("chatfeelings.", "")) && p.hasPermission("chatfeelings.all"));
+        String feelingNode = node;
+        if (feelingNode.startsWith("chatfeelings.")) {
+            feelingNode = feelingNode.substring("chatfeelings.".length());
+        }
+
+        return (!(p instanceof Player))
+                || (!node.equalsIgnoreCase("none") && p.hasPermission(node))
+                || p.isOp()
+                || (!admin_cmd && !useperms)
+                || (feelings.contains(feelingNode) && p.hasPermission("chatfeelings.all"));
     }
 
     public boolean hasPerm(CommandSender p, String node) {
