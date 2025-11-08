@@ -1,4 +1,4 @@
-package com.zachduda.chatfeelings;
+package com.terryviento.chatfeelings;
 
 import org.bukkit.entity.Player;
 import space.arim.morepaperlib.scheduling.ScheduledTask;

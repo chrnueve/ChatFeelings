@@ -1,6 +1,6 @@
-package com.zachduda.chatfeelings.api;
+package com.terryviento.chatfeelings.api;
 
-import com.zachduda.chatfeelings.Main;
+import com.terryviento.chatfeelings.Main;
 import org.bukkit.Bukkit;
 
 import java.util.List;

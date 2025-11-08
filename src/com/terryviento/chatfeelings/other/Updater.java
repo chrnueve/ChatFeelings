@@ -1,6 +1,6 @@
-package com.zachduda.chatfeelings.other;
+package com.terryviento.chatfeelings.other;
 
-import com.zachduda.chatfeelings.Main;
+import com.terryviento.chatfeelings.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;

@@ -1,6 +1,6 @@
-package com.zachduda.chatfeelings;
+package com.terryviento.chatfeelings;
 
-import com.zachduda.chatfeelings.other.Supports;
+import com.terryviento.chatfeelings.other.Supports;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 

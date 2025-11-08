@@ -1,6 +1,6 @@
-package com.zachduda.chatfeelings.api;
+package com.terryviento.chatfeelings.api;
 
-import com.zachduda.chatfeelings.Main;
+import com.terryviento.chatfeelings.Main;
 import me.clip.placeholderapi.PlaceholderAPIPlugin;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;

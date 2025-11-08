@@ -1,9 +1,9 @@
-package com.zachduda.chatfeelings;
+package com.terryviento.chatfeelings;
 
 import com.earth2me.essentials.Essentials;
-import com.zachduda.chatfeelings.api.*;
-import com.zachduda.chatfeelings.other.Supports;
-import com.zachduda.chatfeelings.other.Updater;
+import com.terryviento.chatfeelings.api.*;
+import com.terryviento.chatfeelings.other.Supports;
+import com.terryviento.chatfeelings.other.Updater;
 import litebans.api.Database;
 import me.leoko.advancedban.manager.PunishmentManager;
 import org.bstats.bukkit.Metrics;

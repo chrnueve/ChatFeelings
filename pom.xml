@@ -3,11 +3,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <name>ChatFeelings-${project.version}</name>
-    <groupId>com.zachduda</groupId>
+    <groupId>com.terryviento</groupId>
     <artifactId>chatfeelings</artifactId>
-    <url>https://zachduda.com/chatfeelings</url>
+    <url>https://github.com/TerryViento/ChatFeelings</url>
     <packaging>jar</packaging>
-    <version>4.15.0</version>
+    <version>4.16.0</version>
     <description>Show your feelings in Minecraft with this lightweight plugin!</description>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -42,11 +42,11 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>com.zachduda.chatfeelings.other.metrics</shadedPattern>
+                            <shadedPattern>com.terryviento.chatfeelings.other.metrics</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>space.arim.morepaperlib</pattern>
-                            <shadedPattern>com.zachduda.chatfeelings.other.morepaperlib</shadedPattern>
+                            <shadedPattern>com.terryviento.chatfeelings.other.morepaperlib</shadedPattern>
                         </relocation>
                     </relocations>
                     <minimizeJar>true</minimizeJar>
@@ -160,7 +160,7 @@
         <repository>
             <id>github</id>
             <name>ChatFeelings</name>
-            <url>https://maven.pkg.github.com/zachduda/ChatFeelings</url>
+            <url>https://maven.pkg.github.com/terryviento/ChatFeelings</url>
         </repository>
     </distributionManagement>
 </project>
