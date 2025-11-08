@@ -28,8 +28,8 @@ Please check out the [Spigot Page](https://www.spigotmc.org/resources/chatfeelin
 This project is licensed under [Creative Commons (CC-BY-NC-4)](https://creativecommons.org/licenses/by-nc/4.0/).
 You can do whatever you'd like: just give credit and make sure it's non-commerical.
 
-# Contact Me
-If you have any questions or inquiries, you can reach me at https://zachduda.com/contact
+# Contact
+If you have any questions or inquiries, you can reach me at https://zachduda.com/contact, creator of the original mod
 
 
 # Metrics
