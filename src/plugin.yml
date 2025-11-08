@@ -5,65 +5,69 @@ authors: [zach_attack]
 version: 4.15-B78
 api-version: 1.13
 softdepend: [Essentials, VanishNoPacket, LiteBans, AdvancedBan, PlaceholderAPI]
-description: Allow your players to show their love, or hatred, with unique emotes!
+description: Permite que tus jugadores expresen su amor u odio con emotes únicos.
 folia-supported: true
 commands:
   chatfeelings:
-    description: General command for chatfeelings.
-  feelings:
-    description: Lists all the feelings you can do!
-    aliases: [ emotions ]
-  hug:
-    description: Gives somebody a nice warm hug!
-  slap:
-    description: Slap some sense back into someone.
-  poke:
-    description: Poke someone to get their attention.
-  highfive:
-    description: Show your support, and give a highfive!
-  facepalm:
-    description: Need to show some disapproval?
-  yell:
-    description: Yell at someone as loud as possible!
-  bite:
-    description: Bite a player right on the arm.
-  snuggle:
-    description: Snuggle up with the power of warm hugs!
-  shake:
-    description: Shakes a player to their feet.
-  stab:
-    description: Stab someone with a knife. Ouch!
-  kiss:
-    description: Make sweet sweet love. uwu
-  punch:
-    description: Punch the lights out of someone!
-  murder:
-    description: Finna kill someone here.
-  boi:
-    description: Living in 2016? Boi at a player.
-  cry:
-    description: Real sad hours? Cry at a player.
-  dab:
-    description: Freshly dab on someone.
-  lick:
-    description: Lick someone like an ice-cream sundae!
-  scorn:
-    description: Shame a player for what they've done.
-  pat:
-    description: Pat a players head for being good.
-  stalk:
-    description: Stalk a player carefully... carefully.
-  sus:
-    description: Pure single-boned suspicion.
-  wave:
-    description: Say farewell, and wave aideu. How elegant!
-  welcomeback:
-    description: Give a warm welcome-back to returning players!
-  boop:
-    description: Boop someone right on their nose!
+    description: Comando general para ChatFeelings.
+  sentimientos:
+    description: Muestra todos los sentimientos disponibles.
+    aliases: [ emociones, feelings ]
+  abrazo:
+    description: Dale a alguien un abrazo bien cálido.
+  bofetada:
+    description: Devuelve a alguien a la realidad con una bofetada.
+  picar:
+    description: Pica a alguien para llamar su atención.
+  chocala:
+    description: Demuestra tu apoyo chocando los cinco.
+  palmada:
+    description: Expresa desaprobación con una palmada en la cara.
+  gritar:
+    description: Grita a alguien tan fuerte como puedas.
+  morder:
+    description: Muerde a un jugador directo en el brazo.
+  acurrucar:
+    description: Acurrúcate con el poder de los abrazos cálidos.
+  sacudir:
+    description: Sacude a un jugador hasta ponerlo en pie.
+  acuchillar:
+    description: Apuñala a alguien con un cuchillo. ¡Ay!
+  besar:
+    description: Da un dulce beso lleno de cariño.
+  golpear:
+    description: Golpea a alguien con todas tus fuerzas.
+  asesinar:
+    description: Lleva la rivalidad al extremo mortal.
+  llorar:
+    description: ¿Horas tristes? Llora con alguien.
+  oye:
+    description: Lánzale un sonoro «oye» a un jugador.
+  dabear:
+    description: Presume haciendo un dab frente a alguien.
+  lamer:
+    description: Lame a alguien como si fuera un helado.
+  despreciar:
+    description: Avergüenza a un jugador por lo que hizo.
+  acariciar:
+    description: Acaricia la cabeza de un jugador por ser bueno.
+  acechar:
+    description: Acecha a un jugador con sigilo.
+  sospechar:
+    description: Míralo con una sospecha de un solo hueso.
+  saludar:
+    description: Despídete con elegancia agitando la mano.
+  bienvenido:
+    description: Da la bienvenida de regreso a los jugadores.
+  tocar:
+    description: Tócale suavemente la nariz a alguien.
+  tetazo:
+    description: Lanza un épico tetazo amistoso.
+  punalada:
+    description: Asesta una puñalada certera.
 permissions:
   chatfeelings.*:
-    description: Allows all ChatFeelings emotes, commands, including administrative actions.
+    description: Permite todos los sentimientos, comandos y acciones administrativas de ChatFeelings.
     children:
       chatfeelings.admin: true
       chatfeelings.stats: true
@@ -73,74 +77,86 @@ permissions:
       chatfeelings.bypasscooldowns: true
       chatfeelings.all: true
   chatfeelings.all:
-    description: Allows access all ChatFeelings emotes.
+    description: Permite acceder a todos los sentimientos de ChatFeelings.
     default: true
     children:
-      chatfeelings.hug: true
-      chatfeelings.slap: true
-      chatfeelings.poke: true
-      chatfeelings.highfive: true
-      chatfeelings.facepalm: true
-      chatfeelings.yell: true
-      chatfeelings.bite: true
-      chatfeelings.snuggle: true
-      chatfeelings.shake: true
-      chatfeelings.kiss: true
-      chatfeelings.punch: true
-      chatfeelings.murder: true
-      chatfeelings.cry: true
-      chatfeelings.boi: true
-      chatfeelings.dab: true
-      chatfeelings.lick: true
-      chatfeelings.pat: true
-      chatfeelings.stalk: true
-      chatfeelings.sus: true
-      chatfeelings.wave: true
-      chatfeelings.welcomeback: true
-      chatfeelings.boop: true
-  chatfeelings.hug:
+      chatfeelings.abrazo: true
+      chatfeelings.bofetada: true
+      chatfeelings.picar: true
+      chatfeelings.chocala: true
+      chatfeelings.palmada: true
+      chatfeelings.gritar: true
+      chatfeelings.morder: true
+      chatfeelings.acurrucar: true
+      chatfeelings.sacudir: true
+      chatfeelings.besar: true
+      chatfeelings.golpear: true
+      chatfeelings.asesinar: true
+      chatfeelings.llorar: true
+      chatfeelings.oye: true
+      chatfeelings.dabear: true
+      chatfeelings.lamer: true
+      chatfeelings.acariciar: true
+      chatfeelings.acechar: true
+      chatfeelings.sospechar: true
+      chatfeelings.saludar: true
+      chatfeelings.bienvenido: true
+      chatfeelings.tocar: true
+      chatfeelings.tetazo: true
+      chatfeelings.punalada: true
+      chatfeelings.acuchillar: true
+      chatfeelings.despreciar: true
+  chatfeelings.abrazo:
     default: true
-  chatfeelings.slap:
+  chatfeelings.bofetada:
     default: true
-  chatfeelings.poke:
+  chatfeelings.picar:
     default: true
-  chatfeelings.highfive:
+  chatfeelings.chocala:
     default: true
-  chatfeelings.facepalm:
+  chatfeelings.palmada:
     default: true
-  chatfeelings.yell:
+  chatfeelings.gritar:
     default: true
-  chatfeelings.bite:
+  chatfeelings.morder:
     default: true
-  chatfeelings.snuggle:
+  chatfeelings.acurrucar:
     default: true
-  chatfeelings.shake:
+  chatfeelings.sacudir:
     default: true
-  chatfeelings.kiss:
+  chatfeelings.acuchillar:
     default: true
-  chatfeelings.punch:
+  chatfeelings.besar:
     default: true
-  chatfeelings.murder:
+  chatfeelings.golpear:
     default: true
-  chatfeelings.cry:
+  chatfeelings.asesinar:
     default: true
-  chatfeelings.boi:
+  chatfeelings.llorar:
     default: true
-  chatfeelings.dab:
+  chatfeelings.oye:
     default: true
-  chatfeelings.lick:
+  chatfeelings.dabear:
     default: true
-  chatfeelings.pat:
+  chatfeelings.lamer:
     default: true
-  chatfeelings.stalk:
+  chatfeelings.despreciar:
     default: true
-  chatfeelings.sus:
+  chatfeelings.acariciar:
     default: true
-  chatfeelings.wave:
+  chatfeelings.acechar:
     default: true
-  chatfeelings.welcomeback:
+  chatfeelings.sospechar:
     default: true
-  chatfeelings.boop:
+  chatfeelings.saludar:
+    default: true
+  chatfeelings.bienvenido:
+    default: true
+  chatfeelings.tocar:
+    default: true
+  chatfeelings.tetazo:
+    default: true
+  chatfeelings.punalada:
     default: true
   chatfeelings.admin:
     default: op

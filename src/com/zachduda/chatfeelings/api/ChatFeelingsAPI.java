@@ -119,7 +119,7 @@ public class ChatFeelingsAPI {
 	/**
 	 * Fetches a feelings message from the emotes.yml
 	 *
-	 * @param feeling The string of the feelings messages you want to get (ie: "hug")
+     * @param feeling The string of the feelings messages you want to get (ie: "abrazo")
 	 */
 	public static String getGlobalEmoteMessage(String feeling) {
 		String flc = feeling.toLowerCase();
@@ -133,7 +133,7 @@ public class ChatFeelingsAPI {
 	/**
 	 * Fetches a feelings message from the emotes.yml
 	 *
-	 * @param feeling The string of the feelings messages you want to get (ie: "hug")
+     * @param feeling The string of the feelings messages you want to get (ie: "abrazo")
 	 */
 	public static String getSenderEmoteMessage(String feeling) {
 		String flc = feeling.toLowerCase();
@@ -147,7 +147,7 @@ public class ChatFeelingsAPI {
 	/**
 	 * Fetches a feelings message from the emotes.yml
 	 *
-	 * @param feeling The string of the feelings messages you want to get (ie: "hug")
+     * @param feeling The string of the feelings messages you want to get (ie: "abrazo")
 	 */
 	public static String getTargetEmoteMessage(String feeling) {
 		String flc = feeling.toLowerCase();

@@ -20,54 +20,54 @@ public class Particles {
             }
 
             try {
-                if (label.equalsIgnoreCase("hug")) {
+                if (label.equalsIgnoreCase("abrazo")) {
                     hugParticle(p);
-                } else if (label.equalsIgnoreCase("slap")) {
+                } else if (label.equalsIgnoreCase("bofetada")) {
                     punchParticle(p);
-                } else if (label.equalsIgnoreCase("poke")) {
+                } else if (label.equalsIgnoreCase("picar")) {
                     pokeParticle(p);
-                } else if (label.equalsIgnoreCase("highfive")) {
+                } else if (label.equalsIgnoreCase("chocala")) {
                     highfiveParticle(p);
-                } else if (label.equalsIgnoreCase("facepalm")) {
+                } else if (label.equalsIgnoreCase("palmada")) {
                     facepalmParticle(p);
-                } else if (label.equalsIgnoreCase("yell")) {
+                } else if (label.equalsIgnoreCase("gritar")) {
                     yellParticle(p);
-                } else if (label.equalsIgnoreCase("bite")) {
+                } else if (label.equalsIgnoreCase("morder")) {
                     biteParticle(p);
-                } else if (label.equalsIgnoreCase("snuggle")) {
+                } else if (label.equalsIgnoreCase("acurrucar")) {
                     hugParticle(p);
-                } else if (label.equalsIgnoreCase("shake")) {
+                } else if (label.equalsIgnoreCase("sacudir")) {
                     slapParticle(p);
-                } else if (label.equalsIgnoreCase("stab")) {
+                } else if (label.equalsIgnoreCase("acuchillar") || label.equalsIgnoreCase("punalada")) {
                     murderParticle(p);
-                } else if (label.equalsIgnoreCase("kiss")) {
+                } else if (label.equalsIgnoreCase("besar")) {
                     hugParticle(p);
-                } else if (label.equalsIgnoreCase("punch")) {
+                } else if (label.equalsIgnoreCase("golpear") || label.equalsIgnoreCase("tetazo")) {
                     punchParticle(p);
-                } else if (label.equalsIgnoreCase("murder")) {
+                } else if (label.equalsIgnoreCase("asesinar")) {
                     murderParticle(p);
-                } else if (label.equalsIgnoreCase("boi")) {
+                } else if (label.equalsIgnoreCase("oye")) {
                     boiParticle(p);
-                } else if (label.equalsIgnoreCase("cry")) {
+                } else if (label.equalsIgnoreCase("llorar")) {
                     cryParticle(p);
-                } else if (label.equalsIgnoreCase("dab")) {
+                } else if (label.equalsIgnoreCase("dabear")) {
                     dabParticle(p);
-                } else if (label.equalsIgnoreCase("lick")) {
+                } else if (label.equalsIgnoreCase("lamer")) {
                     lickParticle(p);
-                } else if (label.equalsIgnoreCase("scorn")) {
+                } else if (label.equalsIgnoreCase("despreciar")) {
                     // No particle
-                } else if (label.equalsIgnoreCase("pat")) {
+                } else if (label.equalsIgnoreCase("acariciar")) {
                     // Use hug particle
                     hugParticle(p);
-                } else if(label.equalsIgnoreCase("wave")) {
+                } else if(label.equalsIgnoreCase("saludar")) {
                     waveParticle(p);
-                } else if (label.equalsIgnoreCase("welcomeback")) {
+                } else if (label.equalsIgnoreCase("bienvenido")) {
                     wbParticle(p);
-                } else if (label.equalsIgnoreCase("stalk")) {
+                } else if (label.equalsIgnoreCase("acechar")) {
                     // No particle
-                } else if (label.equalsIgnoreCase("sus")) {
+                } else if (label.equalsIgnoreCase("sospechar")) {
                     // No particle
-                } else if(label.equalsIgnoreCase("boop")) {
+                } else if(label.equalsIgnoreCase("tocar")) {
                     // resuse
                     dabParticle(p);
                 } else {
