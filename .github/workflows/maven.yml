@@ -1,13 +1,51 @@
-name: Java CI
-on: [push]
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Set up JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: 21
-    - name: Build with Maven
-      run: mvn package --file pom.xml
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Determine project coordinates
+        id: project_metadata
+        run: |
+          echo "version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> "$GITHUB_OUTPUT"
+          echo "artifact=$(mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout)" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.project_metadata.outputs.version }}-${{ github.run_id }}
+          release_name: Release v${{ steps.project_metadata.outputs.version }} (run ${{ github.run_id }})
+          draft: false
+          prerelease: false
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: target/${{ steps.project_metadata.outputs.artifact }}-${{ steps.project_metadata.outputs.version }}.jar
+          asset_name: ${{ steps.project_metadata.outputs.artifact }}-${{ steps.project_metadata.outputs.version }}.jar
+          asset_content_type: application/java-archive
