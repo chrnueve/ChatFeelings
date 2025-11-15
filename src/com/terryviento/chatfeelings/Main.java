@@ -67,6 +67,7 @@ public class Main extends JavaPlugin implements Listener, TabExecutor {
             "bienvenido",
             "tocar",
             "tetazo",
+            "vomito",
             "punalada"
         );
 
