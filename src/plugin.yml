@@ -63,6 +63,8 @@ commands:
     description: Tócale suavemente la nariz a alguien.
   tetazo:
     description: Lanza un épico tetazo amistoso.
+  vomito:
+    description: Hazle saber a alguien que le vomitas en los pies.
   punalada:
     description: Asesta una puñalada certera.
 permissions:
@@ -103,6 +105,7 @@ permissions:
       chatfeelings.bienvenido: true
       chatfeelings.tocar: true
       chatfeelings.tetazo: true
+      chatfeelings.vomito: true
       chatfeelings.punalada: true
       chatfeelings.acuchillar: true
       chatfeelings.despreciar: true
@@ -155,6 +158,8 @@ permissions:
   chatfeelings.tocar:
     default: true
   chatfeelings.tetazo:
+    default: true
+  chatfeelings.vomito:
     default: true
   chatfeelings.punalada:
     default: true

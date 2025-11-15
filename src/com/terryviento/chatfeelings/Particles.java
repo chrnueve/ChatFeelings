@@ -44,6 +44,8 @@ public class Particles {
                     hugParticle(p);
                 } else if (label.equalsIgnoreCase("golpear") || label.equalsIgnoreCase("tetazo")) {
                     punchParticle(p);
+                } else if (label.equalsIgnoreCase("vomito")) {
+                    vomitParticle(p);
                 } else if (label.equalsIgnoreCase("asesinar")) {
                     murderParticle(p);
                 } else if (label.equalsIgnoreCase("oye")) {
@@ -215,7 +217,7 @@ public class Particles {
     }
 
 
-	private static void lickParticle(Player p) {
+        private static void lickParticle(Player p) {
         World world = p.getLocation().getWorld();
         assert world != null;
 
@@ -235,6 +237,21 @@ public class Particles {
 
         world.spawnParticle(drip, p.getLocation().add(0, 2, 0), 10, 0.2D, 0.5D, 0.2D);
         world.spawnParticle(drop, p.getLocation().add(0, 1, 0), 24, 1.0D, 0.5D, 1.0D);
+    }
+
+        private static void vomitParticle(Player p) {
+        World world = p.getLocation().getWorld();
+        assert world != null;
+
+        Particle drip;
+        if (particleVersion >= 2) {
+            drip = Particle.DRIPPING_WATER;
+        } else {
+            drip = Particle.valueOf("DRIP_WATER");
+        }
+
+        world.spawnParticle(Particle.CLOUD, p.getLocation().add(0, 1.2D, 0), 20, 0.5D, 0.3D, 0.5D, 0.01D);
+        world.spawnParticle(drip, p.getLocation().add(0, 0.8D, 0), 20, 0.4D, 0.2D, 0.4D);
     }
 
 	private static void yellParticle(Player p) {

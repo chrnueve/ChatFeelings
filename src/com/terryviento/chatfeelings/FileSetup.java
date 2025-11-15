@@ -223,7 +223,7 @@ public class FileSetup {
         File emotesfile = new File(folder, File.separator + "emotes.yml");
         FileConfiguration emotes = YamlConfiguration.loadConfiguration(emotesfile);
 
-        final int msgfilever = 12;
+        final int msgfilever = 13;
         if (!msgsfile.exists() || !msgs.contains("Version")) {
 
             List<String> confighead = new ArrayList<>();
@@ -266,7 +266,7 @@ public class FileSetup {
             if (currentmsgv < 12) {
                 // Was also v11 but had auto correct causing upgrade issues, bump to v12 - 8/18/24
                 // Typo in file, move old variables to correctly spelled one.
-                // INTENTIONALLY MISTYPED AS INGORING TO CORRECT TO IGNORING 
+                // INTENTIONALLY MISTYPED AS INGORING TO CORRECT TO IGNORING
                 if (msgs.getString("Ingoring-On-Player") != null) {
                     setMsgs("Ignoring-On-Player", msgs.getString("Ingoring-On-Player"));
                     forceMsgs("Ingoring-On-Player", null);
@@ -290,6 +290,10 @@ public class FileSetup {
                     setMsgs("Command_Descriptions.Welcomeback", msgs.getString("Command_Descriptions.Wb"));
                     forceMsgs("Command_Descriptions.Wb", null);
                 }
+            }
+
+            if (currentmsgv < 13) {
+                forceMsgs("Command_Descriptions.Vomito", null);
             }
         }
 
@@ -387,8 +391,9 @@ public class FileSetup {
         setMsgs("Command_Descriptions.Bienvenido", "Da una cálida bienvenida a los jugadores que regresan.");
         setMsgs("Command_Descriptions.Tocar", "Bopea suavemente la nariz de alguien.");
         setMsgs("Command_Descriptions.Tetazo", "Lanza un tetazo amistoso y divertido.");
+        setMsgs("Command_Descriptions.Vomito", "Hazle saber a alguien que le vomitas en los pies.");
         setMsgs("Command_Descriptions.Punalada", "Asesta una puñalada certera.");
-        setMsgsVersion(12);
+        setMsgsVersion(13);
 
         if (!emotesfile.exists() || !emotes.contains("Version")) {
             if (saveFile(emotes, emotesfile)) {
@@ -397,7 +402,7 @@ public class FileSetup {
                 }
             }
         } else {
-            if (emotes.getInt("Version") != 7) {
+            if (emotes.getInt("Version") != 8) {
                 plugin.getLogger().info("Updating your emotes.yml for the latest update...");
                 if(emotes.getInt("Version") <= 4) {
                     if(!emotes.contains("Feelings.Bienvenido.Msgs.Sender") || Objects.requireNonNull(emotes.getString("Feelings.Bienvenido.Msgs.Sender")).equalsIgnoreCase("&7You told &a&l%player% welcome back!")) {
@@ -435,7 +440,10 @@ public class FileSetup {
                         }
                     }
                 }
-                setEmotesVersion(7);
+                if (emotes.getInt("Version") <= 7) {
+                    forceEmotes("Feelings.Vomito", null);
+                }
+                setEmotesVersion(8);
             }
         }
 
@@ -485,6 +493,17 @@ public class FileSetup {
         setEmotes("Feelings.Tetazo.Sounds.Sound2.Name", "None");
         setEmotesDouble("Feelings.Tetazo.Sounds.Sound2.Volume", 0.0);
         setEmotesDouble("Feelings.Tetazo.Sounds.Sound2.Pitch", 0.0);
+
+        setEmotesBoolean("Feelings.Vomito.Enable", true);
+        setEmotes("Feelings.Vomito.Msgs.Sender", "&7Le vomitas en los pies a &a&l%player%&r&7. &2¡Puaj!");
+        setEmotes("Feelings.Vomito.Msgs.Target", "&a&l%player% &r&7te vomita en los pies. &2¡Puaj!");
+        setEmotes("Feelings.Vomito.Msgs.Global", "&a&l%sender% &r&7le vomitó en los pies a &2&l%target%&r&7. &2¡Puaj!");
+        setEmotes("Feelings.Vomito.Sounds.Sound1.Name", "ENTITY.PLAYER.BURP");
+        setEmotesDouble("Feelings.Vomito.Sounds.Sound1.Volume", 1.0);
+        setEmotesDouble("Feelings.Vomito.Sounds.Sound1.Pitch", 1.0);
+        setEmotes("Feelings.Vomito.Sounds.Sound2.Name", "None");
+        setEmotesDouble("Feelings.Vomito.Sounds.Sound2.Volume", 0.0);
+        setEmotesDouble("Feelings.Vomito.Sounds.Sound2.Pitch", 0.0);
 
         setEmotesBoolean("Feelings.Asesinar.Enable", true);
         setEmotes("Feelings.Asesinar.Msgs.Sender", "&7Asesinas a &c&l%player% &r&7sin remordimientos.");
@@ -749,7 +768,7 @@ public class FileSetup {
         setEmotesDouble("Feelings.Tocar.Sounds.Sound2.Volume", 0.0);
         setEmotesDouble("Feelings.Tocar.Sounds.Sound2.Pitch", 0.0);
 
-        setEmotesVersion(7);
+        setEmotesVersion(8);
         reloadFiles();
     }
 
